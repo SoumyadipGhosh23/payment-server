@@ -9,9 +9,9 @@ const Home = () => {
 
     const checkoutHandler = async (amount) => {
 
-        const { data: { key } } = await axios.get("payment-server-backend.vercel.app/api/getkey")
+        const { data: { key } } = await axios.get("https://payment-server-backend.vercel.app/api/getkey")
 
-        const { data: { order } } = await axios.post("payment-server-backend.vercel.app/api/checkout", {
+        const { data: { order } } = await axios.post("https://payment-server-backend.vercel.app/api/checkout", {
             amount
         })
 
@@ -23,7 +23,7 @@ const Home = () => {
             description: "Tutorial of RazorPay",
             image: "https://avatars.githubusercontent.com/u/25058652?v=4",
             order_id: order.id,
-            callback_url: "payment-server-backend.vercel.app/api/paymentverification",
+            callback_url: "https://payment-server-backend.vercel.app/api/paymentverification",
             prefill: {
                 name: "Gaurav Kumar",
                 email: "gsoumyadip2307@gmail.com",

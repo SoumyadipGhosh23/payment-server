@@ -7,7 +7,7 @@ config({ path: "./config/config.env" });
 export const app = express();
 
 app.use(cors(
-  {origin : ["payment-server-alpha.vercel.app/"],
+  {origin : ["https://payment-server-alpha.vercel.app"],
   methos : ["POST", "GET"],
   credentials : true,
 }
