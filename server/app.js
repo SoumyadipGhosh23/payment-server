@@ -6,9 +6,18 @@ config({ path: "./config/config.env" });
 
 export const app = express();
 
-app.use(cors());
+app.use(cors(
+  {origin : ["payment-server-alpha.vercel.app"],
+  methos : ["POST", "GET"],
+  credentials : true,
+}
+));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.get("/",(req,res)=>{
+  res.status(200).json("Hello")
+})
 
 app.use("/api", paymentRoute);
 
